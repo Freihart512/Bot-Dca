@@ -76,7 +76,7 @@ module.exports = tseslint.config(
   },
   {
     files: ['packages/**/*.ts'],
-    ignores: ['packages/core/src/**'],
+    excludedFiles: ['packages/core/src/**/*.ts'],
     rules: {
       'no-restricted-imports': [
         'error',

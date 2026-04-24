@@ -10,7 +10,8 @@
     "test:unit": "echo \"TECH-086 placeholder test:unit (pending TECH-082/083)\"",
     "test:integration": "echo \"TECH-086 placeholder test:integration (pending TECH-082/084/085)\"",
     "test:e2e": "echo \"TECH-086 placeholder test:e2e (pending TECH-082/088)\"",
-    "test": "pnpm -w test:unit && pnpm -w test:integration && pnpm -w test:e2e"
+    "test": "pnpm -w test:unit && pnpm -w test:integration && pnpm -w test:e2e",
+    "dev": "turbo run dev --parallel --filter=@bot-dca/api --filter=@bot-dca/worker"
   },
   "devDependencies": {
     "turbo": "^2.5.0",
@@ -19,6 +20,7 @@
     "@eslint/js": "^9.25.1",
     "typescript-eslint": "^8.30.1",
     "prettier": "^3.5.3",
-    "eslint-plugin-boundaries": "^4.2.2"
+    "eslint-plugin-boundaries": "^4.2.2",
+    "tsx": "^4.20.3"
   }
 }
