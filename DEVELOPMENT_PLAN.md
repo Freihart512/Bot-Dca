@@ -14,7 +14,7 @@
 ## Estado de tareas
 - [x] TECH-001 — done
 - [x] TECH-002 — done
-- [ ] TECH-003 — pending
+- [x] TECH-003 — done
 - [ ] TECH-004 — pending
 - [ ] TECH-087 — pending
 - [ ] TECH-086 — pending
@@ -107,3 +107,6 @@
 
 - 2026-04-24: TECH-002 → in_progress
 - 2026-04-24: TECH-002 → done
+
+- 2026-04-24: TECH-003 → in_progress
+- 2026-04-24: TECH-003 → done
