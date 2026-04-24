@@ -1,0 +1,13 @@
+{
+  "name": "bot-dca",
+  "private": true,
+  "packageManager": "pnpm@10.8.1",
+  "scripts": {
+    "build": "turbo run build",
+    "typecheck": "turbo run typecheck"
+  },
+  "devDependencies": {
+    "turbo": "^2.5.0",
+    "typescript": "^5.8.3"
+  }
+}
