@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "scripts": {
-    "build": "echo 'TECH-001 placeholder build worker'"
+    "build": "echo 'TECH-001 placeholder build worker'",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
   }
 }
