@@ -40,8 +40,15 @@ jobs:
         with:
           node-version: 20
           cache: pnpm
+          # Lockfile en la raíz; evita caché incorrecta con workspaces pnpm
+          cache-dependency-path: pnpm-lock.yaml
       - name: Install dependencies
         run: pnpm -w install --frozen-lockfile
+      - name: Verify workspace deps (api)
+        run: |
+          test -d node_modules
+          pnpm --filter @bot-dca/api exec node -e "console.log('resolve', require.resolve('@nestjs/common'))"
+          pnpm --filter @bot-dca/api exec tsc -v
       - name: Lint
         run: pnpm -w lint
       - name: Typecheck
