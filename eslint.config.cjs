@@ -1,3 +1,4 @@
+const path = require('path');
 const js = require('@eslint/js');
 const tseslint = require('typescript-eslint');
 const boundaries = require('eslint-plugin-boundaries');
@@ -89,6 +90,17 @@ module.exports = tseslint.config(
           ],
         },
       ],
+    },
+  },
+  // test/ queda fuera de apps/api/tsconfig.json (solo src); el projectService no lo indexa
+  {
+    files: ['apps/api/test/**/*.ts'],
+    languageOptions: {
+      parserOptions: {
+        projectService: false,
+        project: [path.join(__dirname, 'apps/api/tsconfig.typecheck.json')],
+        tsconfigRootDir: __dirname,
+      },
     },
   }
 );
