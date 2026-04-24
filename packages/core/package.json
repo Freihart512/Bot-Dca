@@ -1,0 +1,11 @@
+{
+  "name": "@bot-dca/core",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "echo 'TECH-001 placeholder build core'",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint \"src/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\""
+  }
+}
