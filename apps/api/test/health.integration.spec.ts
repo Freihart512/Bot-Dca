@@ -3,7 +3,7 @@
  * La ejecución real se habilitará en TECH-082 (runner monorepo de tests).
  */
 import { Test } from '@nestjs/testing';
-import { INestApplication } from '@nestjs/common';
+import type { INestApplication } from '@nestjs/common';
 import request from 'supertest';
 
 import { AppModule } from '../src/app.module';
