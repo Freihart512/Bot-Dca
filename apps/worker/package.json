@@ -1,0 +1,8 @@
+{
+  "name": "@bot-dca/worker",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "build": "echo 'TECH-001 placeholder build worker'"
+  }
+}
