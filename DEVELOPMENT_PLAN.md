@@ -16,7 +16,7 @@
 - [x] TECH-002 — done
 - [x] TECH-003 — done
 - [x] TECH-004 — done
-- [ ] TECH-087 — pending
+- [x] TECH-087 — done
 - [ ] TECH-086 — pending
 - [ ] TECH-005 — pending
 - [ ] TECH-006 — pending
@@ -113,3 +113,6 @@
 
 - 2026-04-24: TECH-004 → in_progress
 - 2026-04-24: TECH-004 → done
+
+- 2026-04-24: TECH-087 → in_progress
+- 2026-04-24: TECH-087 → done
