@@ -6,6 +6,9 @@ on:
     branches:
       - master
 
+env:
+  NODE_ENV: development
+
 jobs:
   install:
     runs-on: ubuntu-latest
@@ -23,7 +26,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm -w install --frozen-lockfile
+        run: pnpm -w install --frozen-lockfile --prod=false
 
   lint:
     runs-on: ubuntu-latest
@@ -42,7 +45,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm -w install --frozen-lockfile
+        run: pnpm -w install --frozen-lockfile --prod=false
 
       - name: Run lint
         run: pnpm -w lint
@@ -64,7 +67,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm -w install --frozen-lockfile
+        run: pnpm -w install --frozen-lockfile --prod=false
 
       - name: Run typecheck
         run: pnpm -w typecheck
@@ -100,7 +103,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm -w install --frozen-lockfile
+        run: pnpm -w install --frozen-lockfile --prod=false
 
       - name: Run unit tests
         run: pnpm -w test:unit
@@ -136,7 +139,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm -w install --frozen-lockfile
+        run: pnpm -w install --frozen-lockfile --prod=false
 
       - name: Run integration tests
         run: pnpm -w test:integration
@@ -172,7 +175,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm -w install --frozen-lockfile
+        run: pnpm -w install --frozen-lockfile --prod=false
 
       - name: Run e2e tests
         run: pnpm -w test:e2e
@@ -199,7 +202,7 @@ jobs:
           cache: pnpm
 
       - name: Install dependencies
-        run: pnpm -w install --frozen-lockfile
+        run: pnpm -w install --frozen-lockfile --prod=false
 
       - name: Run build
         run: pnpm -w build
