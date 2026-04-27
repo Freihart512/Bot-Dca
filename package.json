@@ -3,7 +3,9 @@
   "private": true,
   "packageManager": "pnpm@10.18.3",
   "scripts": {
+    "dev": "turbo run dev",
     "build": "turbo run build",
+    "test": "turbo run test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "typecheck": "turbo run typecheck"
