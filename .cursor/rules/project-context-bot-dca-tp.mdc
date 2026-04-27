@@ -1,0 +1,41 @@
+---
+description: Contexto global del proyecto Bot Spot DCA + TP
+alwaysApply: true
+---
+
+# Contexto del proyecto
+
+## Objetivo de producto
+- Bot de trading **spot-only** defensivo para recuperar el 100% del capital inicial con ganancias realizadas.
+- Horizonte largo plazo; quedar `trapped` es un riesgo aceptado y no un bug por si mismo.
+
+## Estrategia funcional (reglas fijas)
+- Sin indicadores, IA/ML, trailing TP, stop-loss ni optimizacion dinamica.
+- Ciclo: hasta 5 compras regulares + 1 compra de extension opcional + TP.
+- Referencia dinamica solo antes de la primera compra.
+- Compras regulares: porcentajes 10/12/14/16/18 del capital inicial.
+- Compra de extension: una sola, activada por caida adicional, usando cash disponible.
+- TP: venta total cuando precio >= precio_promedio * 1.08.
+
+## Reglas de ejecucion de ordenes
+- Compras siempre con ordenes `LIMIT` + `GTC`.
+- Fills parciales son validos; cancelar explicitamente el remanente.
+- Precio promedio calculado solo con fills reales ejecutados.
+- Venta de TP se ejecuta con orden `MARKET` para priorizar salida.
+
+## Arquitectura obligatoria
+- Monorepo con `apps/api`, `apps/worker`, `packages/core`, `packages/infra-*`.
+- `packages/core` es puro (sin dependencias a DB, Binance, Telegram o Nest).
+- API es control-plane; nunca ejecuta logica de trading directa.
+- Worker 24/7 ejecuta estrategia, con lock por bot e idempotencia.
+- Command bus simple via DB (`bot_commands`) para start/pause/resume/terminate.
+
+## Persistencia y resiliencia
+- PostgreSQL como source of truth (bots/cycles/orders/fills/business_events/runtime/commands).
+- Transacciones por step e idempotencia (`idempotency_key`, `clientOrderId` determinista).
+- Modo degradado: si WS cae, continuar con polling + notificar.
+- Toda reconciliacion final de ordenes/fills se basa en estado reportado por exchange.
+
+## Linderos de scope
+- No agregar UI/dashboard, multi-exchange, escalado horizontal ni observabilidad avanzada en v1.
+- Si una decision no esta en PRD/ADR/backlogs, pedir confirmacion antes de implementarla.
