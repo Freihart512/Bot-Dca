@@ -1,12 +1,14 @@
 import js from "@eslint/js";
 import boundaries from "eslint-plugin-boundaries";
 import globals from "globals";
+import tseslint from "typescript-eslint";
 
 export default [
   {
     ignores: ["**/node_modules/**", "**/.turbo/**", "**/dist/**", "**/coverage/**"]
   },
   js.configs.recommended,
+  ...tseslint.configs.recommended,
   {
     files: ["**/*.{js,mjs,cjs,ts,mts,cts}"],
     plugins: {
@@ -31,18 +33,22 @@ export default [
       }
     },
     rules: {
-      "boundaries/element-types": [
+      "boundaries/dependencies": [
         "error",
         {
           default: "allow",
           rules: [
             {
-              from: ["core"],
-              disallow: ["infra-db", "infra-exchange-binance", "infra-notifications-telegram"]
+              from: { type: "core" },
+              disallow: {
+                to: { type: ["infra-db", "infra-exchange-binance", "infra-notifications-telegram"] }
+              }
             },
             {
-              from: ["core", "infra-db", "infra-exchange-binance", "infra-notifications-telegram"],
-              disallow: ["apps-api", "apps-worker"]
+              from: {
+                type: ["core", "infra-db", "infra-exchange-binance", "infra-notifications-telegram"]
+              },
+              disallow: { to: { type: ["apps-api", "apps-worker"] } }
             }
           ]
         }
