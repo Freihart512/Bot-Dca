@@ -3,9 +3,16 @@
   "private": true,
   "packageManager": "pnpm@10.18.3",
   "scripts": {
-    "build": "turbo run build"
+    "build": "turbo run build",
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "typecheck": "turbo run typecheck"
   },
   "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.2.1",
+    "globals": "^17.5.0",
+    "prettier": "^3.8.3",
     "turbo": "^2.5.8"
   }
 }
