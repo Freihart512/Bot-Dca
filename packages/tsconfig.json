@@ -5,5 +5,5 @@
     "noEmit": true
   },
   "files": [],
-  "references": []
+  "references": [{ "path": "./core/tsconfig.json" }]
 }
