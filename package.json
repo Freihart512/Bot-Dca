@@ -6,6 +6,9 @@
     "dev": "turbo run dev",
     "build": "turbo run build",
     "test": "turbo run test",
+    "test:unit": "pnpm -w test",
+    "test:integration": "pnpm -w test",
+    "test:e2e": "pnpm -w test",
     "lint": "eslint .",
     "format": "prettier --write .",
     "typecheck": "turbo run typecheck"
