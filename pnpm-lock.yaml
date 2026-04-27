@@ -88,6 +88,24 @@ importers:
         specifier: ^6.0.3
         version: 6.0.3
 
+  packages/infra-db:
+    devDependencies:
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+
+  packages/infra-exchange-binance:
+    devDependencies:
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+
+  packages/infra-notifications-telegram:
+    devDependencies:
+      typescript:
+        specifier: ^6.0.3
+        version: 6.0.3
+
 packages:
 
   '@borewit/text-codec@0.2.2':

@@ -5,5 +5,10 @@
     "noEmit": true
   },
   "files": [],
-  "references": [{ "path": "./core/tsconfig.json" }]
+  "references": [
+    { "path": "./core/tsconfig.json" },
+    { "path": "./infra-db/tsconfig.json" },
+    { "path": "./infra-exchange-binance/tsconfig.json" },
+    { "path": "./infra-notifications-telegram/tsconfig.json" }
+  ]
 }

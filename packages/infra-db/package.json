@@ -1,0 +1,23 @@
+{
+  "name": "@bot-dca/infra-db",
+  "private": true,
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "dev": "node -e \"console.log('infra-db dev placeholder')\"",
+    "build": "tsc -p tsconfig.build.json",
+    "test": "node -e \"console.log('infra-db test placeholder')\"",
+    "lint": "node -e \"console.log('infra-db lint delegated to root eslint')\"",
+    "typecheck": "tsc -p tsconfig.json --noEmit"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3"
+  }
+}
