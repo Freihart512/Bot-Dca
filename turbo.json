@@ -6,7 +6,7 @@
       "persistent": true
     },
     "build": {
-      "outputs": []
+      "outputs": ["dist/**"]
     },
     "test": {
       "outputs": []
