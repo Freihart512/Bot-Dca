@@ -2,6 +2,7 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "composite": true,
+    "types": ["node"],
     "module": "Node16",
     "moduleResolution": "Node16",
     "target": "ES2022",
