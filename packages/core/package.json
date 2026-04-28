@@ -13,13 +13,13 @@
   "scripts": {
     "dev": "node -e \"console.log('core dev placeholder')\"",
     "build": "tsc -p tsconfig.build.json",
-    "test": "tsx --test \"src/**/*.test.ts\"",
+    "test": "vitest run",
     "lint": "node -e \"console.log('core lint delegated to root eslint')\"",
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "devDependencies": {
     "@types/node": "^25.6.0",
-    "tsx": "^4.21.0",
-    "typescript": "^6.0.3"
+    "typescript": "^6.0.3",
+    "vitest": "^3.2.4"
   }
 }

@@ -1,12 +1,11 @@
 import "reflect-metadata";
-import test from "node:test";
-import assert from "node:assert/strict";
+import { expect, it } from "vitest";
 import request from "supertest";
 import { Test } from "@nestjs/testing";
 import { INestApplication } from "@nestjs/common";
 import { AppModule } from "../src/app.module";
 
-test("GET /health responde 200", async () => {
+it("GET /health responde 200", async () => {
   const testingModule = await Test.createTestingModule({
     imports: [AppModule]
   }).compile();
@@ -15,8 +14,8 @@ test("GET /health responde 200", async () => {
   await app.init();
 
   const response = await request(app.getHttpServer()).get("/health");
-  assert.equal(response.statusCode, 200);
-  assert.deepEqual(response.body, { status: "ok" });
+  expect(response.statusCode).toBe(200);
+  expect(response.body).toEqual({ status: "ok" });
 
   await app.close();
 });

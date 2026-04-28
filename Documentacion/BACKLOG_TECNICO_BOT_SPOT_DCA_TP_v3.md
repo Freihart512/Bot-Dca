@@ -292,6 +292,27 @@ Artefactos esperados:
 Tests requeridos:
 - unit
 
+### TECH-089 — Migrar suite de tests a Vitest (sustituir `node:test` + `tsx` donde aplique)
+Trazabilidad:
+- US-01
+- UC-01
+Contexto: Hoy los unitarios usan `node:test` con `tsx`; Vitest ofrece API unificada, watch, cobertura y alineación con ecosistema TypeScript sin fricción.
+Objetivo: Un solo runner de tests en el monorepo (config compartida o por paquete), migrando los tests existentes y manteniendo CI verde.
+Pasos concretos:
+- Añadir `vitest` (y tipos si hacen falta) en root o en paquetes afectados
+- Definir `vitest.config.*` (o `defineConfig` en packages) y scripts `test` en `package.json` alineados con Turbo
+- Migrar tests de `packages/core` y `apps/api` (u otros que usen `node:test` / `tsx --test`) a sintaxis Vitest (`describe`/`it` o API compatible)
+- Ajustar CI (`.github/workflows`) si las rutas o flags de test cambian
+- Documentar en README o comentario mínimo el comando de test local (`pnpm -w test`)
+Criterios de aceptación:
+- [ ] `pnpm -w test` pasa en local y en CI
+- [ ] No quedan dependencias de ejecución solo para `node --test` en los paquetes migrados (salvo que se decida dejar un paquete sin migrar, explícito en el PR)
+Artefactos esperados:
+- `vitest.config.*` (raíz o por workspace)
+- Tests migrados bajo convención acordada (`*.test.ts` o `__tests__/*`)
+Tests requeridos:
+- unit (y los que ya existan en los paquetes migrados; integration si aplica al mismo runner)
+
 ### TECH-012 — VO Money (stablecoin) + operaciones seguras
 Trazabilidad:
 - US-01
@@ -1636,5 +1657,4 @@ Artefactos esperados:
 - Script `pnpm -w test:e2e`
 Tests requeridos:
 - e2e
-
 
